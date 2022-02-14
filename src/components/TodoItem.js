@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { FaTrash } from 'react-icons/fa';
+import PropTypes from 'prop-types';
 import styles from './TodoItem.module.css';
 
 const TodoItem = (props) => {
+  const {
+    todo, handleChangeProps, deleteTodoProps, setUpdate,
+  } = props;
+
+  const { completed, id, title } = todo;
+
   const [editing, setEditing] = useState(false);
 
   const handleEditing = () => {
@@ -22,8 +29,6 @@ const TodoItem = (props) => {
     textDecoration: 'line-through',
   };
 
-  const { completed, id, title } = props.todo;
-
   const viewMode = {};
   const editMode = {};
 
@@ -40,11 +45,11 @@ const TodoItem = (props) => {
           type="checkbox"
           className={styles.checkbox}
           checked={completed}
-          onChange={() => props.handleChangeProps(id)}
+          onChange={() => handleChangeProps(id)}
         />
         <button
           type="button"
-          onClick={() => props.deleteTodoProps(id)}
+          onClick={() => deleteTodoProps(id)}
         >
           <FaTrash style={{ color: 'orangered', fontSize: '16px' }} />
         </button>
@@ -56,12 +61,21 @@ const TodoItem = (props) => {
         className={styles.textInput}
         value={title}
         onChange={(e) => {
-          props.setUpdate(e.target.value, id);
+          setUpdate(e.target.value, id);
         }}
         onKeyDown={handleUpdatedDone}
       />
     </li>
   );
+};
+
+TodoItem.propTypes = {
+  completed: PropTypes.bool.isRequired,
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  handleChangeProps: PropTypes.func.isRequired,
+  deleteTodoProps: PropTypes.func.isRequired,
+  setUpdate: PropTypes.func.isRequired,
 };
 
 export default TodoItem;
