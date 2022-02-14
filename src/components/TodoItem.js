@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { FaTrash } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 import styles from './TodoItem.module.css';
@@ -70,6 +70,8 @@ const TodoItem = (props) => {
 };
 
 TodoItem.propTypes = {
+  // todo: PropTypes.shape({ root: PropTypes.array.isRequired }),
+  // todo: PropTypes.array.isRequired,
   completed: PropTypes.bool.isRequired,
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
