@@ -5,15 +5,16 @@ import InputTodo from './InputTodo';
 import TodosList from './TodosList';
 
 const TodoContainer = () => {
-  const [todos, setTodos] = useState(() => getInitialTodos());
-
   function getInitialTodos() {
     // getting stored items
     const temp = localStorage.getItem('todos');
     const savedTodos = JSON.parse(temp);
-    console.log('ggggg');
     return savedTodos || [];
   }
+
+  const [todos, setTodos] = useState(() => getInitialTodos());
+
+  
 
   useEffect(() => {
     // storing todos items

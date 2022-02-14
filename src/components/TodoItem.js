@@ -45,8 +45,8 @@ const TodoItem = (props) => {
         <button
           type="button"
           onClick={() => props.deleteTodoProps(id)}
-          >
-          <FaTrash style={{ color: "orangered", fontSize: "16px" }} />
+        >
+          <FaTrash style={{ color: 'orangered', fontSize: '16px' }} />
         </button>
         <span style={completed ? completedStyle : null}>{title}</span>
       </div>
