@@ -5,25 +5,31 @@ class TodoItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      editing : false,
+      editing: false,
     };
   }
 
   handleEditing = () => {
     this.setState({
       editing: true,
-    })
+    });
+  }
+
+  handleUpdatedDone = (event) => {
+    if (event.key === 'Enter') {
+      this.setState({ editing: false });
+    }
   }
 
   render() {
-    let viewMode = {}
-let editMode = {}
+    const viewMode = {};
+    const editMode = {};
 
-if (this.state.editing) {
-  viewMode.display = "none"
-} else {
-  editMode.display = "none"
-}
+    if (this.state.editing) {
+      viewMode.display = 'none';
+    } else {
+      editMode.display = 'none';
+    }
     const { completed, id, title } = this.props.todo;
     const completedStyle = {
       fontStyle: 'italic',
@@ -43,12 +49,16 @@ if (this.state.editing) {
           <button onClick={() => this.props.deleteTodoProps(id)}>Delete</button>
           <span style={completed ? completedStyle : null}>{title}</span>
         </div>
-       <input 
-       type="text" 
-       style={editMode} 
-       className={styles.textInput} 
-       value={title}
-       />
+        <input
+          type="text"
+          style={editMode}
+          className={styles.textInput}
+          value={title}
+          onChange={(e) => {
+            this.props.setUpdate(e.target.value, id);
+          }}
+          onKeyDown={this.handleUpdatedDone}
+        />
       </li>
     );
   }
