@@ -2,14 +2,14 @@ import React from 'react';
 import { Outlet, NavLink } from 'react-router-dom';
 
 const About = () => (
-  <>
-    <div>hello from about page</div>
-    <nav className="navBar">
+
+  <div className="about__content">
+    <nav className="about__list">
       <NavLink to="the-app">the App</NavLink>
       <NavLink to="the-author">the Author</NavLink>
-      <Outlet />
     </nav>
-  </>
+    <Outlet />
+  </div>
 );
 
 export default About;
