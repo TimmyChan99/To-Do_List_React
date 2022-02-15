@@ -9,6 +9,7 @@ import TodosList from './TodosList';
 import About from '../pages/About';
 import NotMatch from '../pages/NotMatch';
 import Navbar from './Navbar';
+import { AboutApp, AboutAuthor } from '../pages/SinglePage';
 
 const TodoContainer = () => {
   function getInitialTodos() {
@@ -87,7 +88,10 @@ const TodoContainer = () => {
             </div>
         )}
         />
-        <Route path="/about" element={<About />} />
+        <Route path="/about" element={<About />}>
+          <Route path="the-app" element={<AboutApp />} />
+          <Route path="the-author" element={<AboutAuthor />} />
+        </Route>
         <Route path="*" element={<NotMatch />} />
       </Routes>
 

@@ -63,3 +63,13 @@ body {
   outline: none;
   border: none;
 }
+
+.active-link {
+  color: black;
+  text-decoration: underline;
+}
+
+.navBar {
+  display: flex;
+  flex-direction: column;
+}
