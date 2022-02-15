@@ -2,7 +2,7 @@
   "name": "to-do_list_react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://timmychan99.github.io/To-Do_List_React",
+  "homepage": "https://timmychan99.github.io/To-Do_List_React/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",
