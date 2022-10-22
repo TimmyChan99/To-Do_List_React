@@ -22,7 +22,11 @@ const TodosList = (props) => {
 };
 
 TodosList.propTypes = {
-  todos: PropTypes.array.isRequired,
+  todos: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string,
+    completed: PropTypes.bool,
+    title: PropTypes.string,
+  })).isRequired,
   handleChangeProps: PropTypes.func.isRequired,
   deleteTodoProps: PropTypes.func.isRequired,
   setUpdate: PropTypes.func.isRequired,
